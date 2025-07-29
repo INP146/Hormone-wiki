@@ -1,0 +1,15 @@
+{
+  "寒蝉全圆": {
+    "paths": [
+      "HanChanQuanYuan"
+    ],
+    "fontFamily": "HanChanQuanYuan"
+  },
+  
+  "猫啃粉圆": {
+    "paths": [
+      "MaoKenFenYuan"
+    ],
+    "fontFamily": "MaoKenFenYuan"
+  }
+}

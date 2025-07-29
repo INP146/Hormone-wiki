@@ -1,0 +1,4 @@
+:root {
+  --vp-font-family-base: var(--main-font) !important; /* 文本字体 */
+  --vp-font-family-mono: var(--main-font) !important; /* 代码字体 */
+}

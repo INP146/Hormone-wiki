@@ -1,0 +1,8 @@
+.vp-nolebase-git-changelog-history {
+  border-left: 5px solid var(--custom-block-home-left);
+  background-color: var(--custom-block-home-bg) !important;
+}
+
+strong {
+  color: var(--vp-c-brand-1);
+}

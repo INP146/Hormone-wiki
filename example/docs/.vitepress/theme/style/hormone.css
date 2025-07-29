@@ -1,0 +1,46 @@
+:root {
+  --hormone-text-color: linear-gradient(90deg, #FF8CA2, #E45A74, #FF8CA2, #FF8CA2, #FF8CA2);
+
+}
+
+.dark {
+  --hormone-text-color: linear-gradient(90deg, #E45A74, #FF8CA2, #E45A74, #E45A74, #E45A74);
+  
+}
+
+.hormone-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  background-image: url('/logo.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
+  transform: translateY(-0.26em);
+}
+
+.hormone-non-rainbow {
+  font-weight: bold;
+}
+
+
+
+.hormone {
+  font-weight: bold;
+  background: var(--hormone-text-color);
+  background-size: 200% 100%; /* 增加动画滚动空间 */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  color: transparent;
+-webkit-text-fill-color: transparent;
+  animation: gradientMove 5s linear infinite;
+
+}
+
+
+@keyframes gradientMove {
+  0% { background-position: 400% 50%; }
+  100% { background-position: 0% 50%; }
+}
