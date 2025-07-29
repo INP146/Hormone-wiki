@@ -1,0 +1,7 @@
+This software is built upon:
+
+- VitePress by Evan You (https://github.com/vuejs/vitepress)
+- A theme developed by Project Trans (https://github.com/project-trans/vitepress-theme-project-trans)
+- Modifications and integrations for Hormone.wiki by INP146 (https://github.com/inp146)
+
+All parts of the project are distributed under the MIT License.
