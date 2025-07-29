@@ -12,8 +12,8 @@ head:
 
 hero:
   name: "<b><span class='hormone'>&nbsp Hormone.wiki &nbsp</span></b>"
-  text: "一份 HRT 指南"
-  tagline: 欢迎来到<span class='hormone-non-rainbow'> Hormone.wiki.</span> 这是一份给跨性别人群的 HRT 指南。希望能为有需要的人提供一点帮助。
+  text: "一份 HRT 百科"
+  tagline: 欢迎来到<span class='hormone-non-rainbow'> Hormone.wiki.</span> 这是一份给跨性别人群的 HRT 百科。希望能为有需要的人提供一点帮助。
   image:
     src: /logo.svg
     alt: Progynova

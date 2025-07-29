@@ -69,7 +69,7 @@ const commonDisclaimerStrDetail = '<p>Hormone.wiki 的内容仅供参考，可�
 
 const themeConfig: ThemeContext = {
   siteTitle: "Hormone.wiki",
-  siteDescription: '一份 Hrt 指南',
+  siteDescription: '一份 Hrt 百科',
   // baseUrl: '/',
   /** Repo */
   githubRepoLink: 'https://github.com/INP146/Hormone-wiki',
