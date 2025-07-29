@@ -4,6 +4,7 @@ layout: home
 lang: zh-CN
 title: Hormone.wiki
 titleTemplate: Home
+author: Hormone.wiki
 
 head:
   - - meta
