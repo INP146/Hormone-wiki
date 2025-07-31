@@ -21,16 +21,16 @@ hero:
   actions:
     - theme: brand
       text: 📄查看文档
-      link: /docs
+      link: /docs/
     - theme: alt
       text: 🛠️实用工具
-      link: /tools
+      link: /tools/
     - theme: alt
       text: 🌚凑个对称
-      link: /about
+      link: /about/
     - theme: alt
       text: ℹ️关于我们
-      link: /about
+      link: /about/
 
 
 ---

@@ -1,11 +1,11 @@
 ---
-title: 文档目录
+title: 工具目录
 index: false
 author: Hormone.wiki
 category:
-  - Docs
+  - Tools
 ---
 
-## 📖 文档目录
+## 📖 工具目录
 
 <ArticlesMenu />

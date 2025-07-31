@@ -1,3 +1,13 @@
+/* 定义下拉箭头颜色变量 */
+:root {
+  --vp-select-arrow: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+}
+
+.dark {
+  --vp-select-arrow: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+}
+
+
 .vp-nolebase-git-changelog-history {
   border-left: 5px solid var(--custom-block-home-left);
   background-color: var(--custom-block-home-bg) !important;
@@ -5,4 +15,77 @@
 
 strong {
   color: var(--vp-c-brand-1);
+}
+
+/* VitePress Input 组件 */
+.vp-input {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-family: var(--vp-font-family-base);
+  line-height: 1.5;
+  color: var(--vp-c-text-1);
+  background-color: var(--vp-c-bg-soft);
+  border: none;
+  border-radius: 0;
+  outline: none;
+  text-align: left;
+  transition: background-color 0.25s, color 0.25s;
+}
+
+.vp-input:focus {
+  background-color: var(--vp-c-bg-alt);
+}
+
+.vp-input::placeholder {
+  color: var(--vp-c-text-3);
+}
+
+
+/* VitePress Select 组件 */
+.vp-select {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-family: var(--vp-font-family-base);
+  line-height: 1.5;
+  color: var(--vp-c-text-1);
+  background-color: var(--vp-c-bg-soft);
+  border: none;
+  border-radius: 0;
+  outline: none;
+  text-align: center;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  transition: background-color 0.25s, color 0.25s;
+  background-image: var(--vp-select-arrow);
+  background-position: right 8px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-right: 32px;
+}
+
+.vp-select:focus {
+  background-color: var(--vp-c-bg-alt);
+}
+
+.vp-select option {
+  background-color: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+}
+
+/* 禁用状态 */
+.vp-input:disabled,
+.vp-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--vp-c-bg-mute);
+}
+
+/* 响应式设计 */
+@media (max-width: 640px) {
+  .vp-input,
+  .vp-select {
+    font-size: 16px; /* 防止 iOS Safari 缩放 */
+  }
 }

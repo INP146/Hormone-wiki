@@ -14,7 +14,7 @@ const nav: DefaultTheme.NavItem[] = [
     items: [
       {
         text: '激素换算器',
-        link: '/tools/hormone_converter',
+        link: '/tools/hormone-converter',
       },
     ],
   },
@@ -53,6 +53,11 @@ const sidebarOptions = [
   },
   {
     ...baseConfig,
+    scanStartPath: 'tools',
+    resolvePath: '/tools/',
+  },
+  {
+    ...baseConfig,
     scanStartPath: 'about',
     resolvePath: '/about/',
   },
@@ -74,11 +79,11 @@ const themeConfig: ThemeContext = {
   /** Repo */
   githubRepoLink: 'https://github.com/INP146/Hormone-wiki',
   /** vitepress 根目录 */
-  rootDir: '/docs',
+  rootDir: 'example/docs',
   sitePattern: `example/docs`,
   hostName: 'https://hormobe.wiki',
   /** 文档所在目录（目前似未使用此项） */
-  include: ['docs','tools', 'about'],
+  include: ['docs', 'tools', 'about'],
   nav,
   sidebarOptions,
   // enableChangeLog: false,

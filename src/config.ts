@@ -256,7 +256,7 @@ function genConfig() {
         }),
         Components({
             dirs: [
-              'docs/.vitepress/theme/components',
+              'example/docs/.vitepress/theme/components',
               resolve(
                 typeof dirname(fileURLToPath(import.meta.url)) === 'string' ?
                 dirname(fileURLToPath(import.meta.url)) :
