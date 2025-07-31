@@ -22,7 +22,7 @@ Hormone.wiki 提供的内容来源于编者经验及网络资料，仅供参考�
 
 完整版的免责声明请见[关于我们/免责声明](/about/disclaimer)
 
-## ©️ 版权说明
+## ©️ 版权声明
 
 网站源码基于 VitePress 和 Project Trans Theme 构建，已进行定制化修改，整体遵循 MIT License，详见 [LICENSE](https://github.com/INP146/Hormone-wiki/blob/main/LICENSE)。
 
@@ -31,4 +31,4 @@ Hormone.wiki 提供的内容来源于编者经验及网络资料，仅供参考�
 
 作者为多人或其他情况会特殊说明。
 
-更详细的版权说明请见[关于我们/版权说明](/about/copyright)
+完整版的版权声明请见[关于我们/版权声明](/about/copyright)

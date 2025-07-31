@@ -30,7 +30,7 @@ const nav: DefaultTheme.NavItem[] = [
         link: '/about/disclaimer',
       },
       {
-        text: '版权说明',
+        text: '版权声明',
         link: '/about/copyright',
       },
     ],
@@ -79,9 +79,9 @@ const themeConfig: ThemeContext = {
   /** Repo */
   githubRepoLink: 'https://github.com/INP146/Hormone-wiki',
   /** vitepress 根目录 */
-  rootDir: 'example/docs',
+  rootDir: 'docs',
   sitePattern: `example/docs`,
-  hostName: 'https://hormobe.wiki',
+  hostName: 'https://hormone.wiki',
   /** 文档所在目录（目前似未使用此项） */
   include: ['docs', 'tools', 'about'],
   nav,
