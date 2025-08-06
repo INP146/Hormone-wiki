@@ -42,6 +42,7 @@ const themeConfig: ThemeContext = {
   getContributorsTitle: defaultLocaleThemeConfig.getContributorsTitle,
   lang: defaultLocaleThemeConfig.lang,
 
+  GAID: 'G-T9J2G2RNNS',
   // baseUrl: '/',
   /** vitepress 根目录 */
   rootDir: 'docs',
