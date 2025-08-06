@@ -1,55 +1,65 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
-lang: zh-CN
 title: Hormone.wiki
-titleTemplate: Home
+titleTemplate: 🌐 Redirecting...
 author: Hormone.wiki
-
-head:
-  - - meta
-    - name: keywords
-      content: 荷尔蒙, HRT, 跨性别, 健康, 内分泌, 激素, 雌二醇, 维基
-
-hero:
-  name: "<b><span class='hormone'>&nbsp Hormone.wiki &nbsp</span></b>"
-  text: "一份 HRT 百科"
-  tagline: 欢迎来到<span class='hormone-non-rainbow'> Hormone.wiki.</span> 这是一份给跨性别人群的 HRT 百科。希望能为有需要的人提供一点帮助。
-  image:
-    src: /logo.svg
-    alt: Progynova
-  actions:
-    - theme: brand
-      text: 📄查看文档
-      link: /docs/
-    - theme: alt
-      text: 🛠️实用工具
-      link: /tools/
-    - theme: alt
-      text: 🌚凑个对称
-      link: /about/
-    - theme: alt
-      text: ℹ️关于我们
-      link: /about/
-
-
 ---
-<script setup>
-import { HomeContent } from '@project-trans/vitepress-theme-project-trans/components'
+
+<script setup lang="ts">
+import { useRouter } from 'vitepress'
+import { onMounted } from 'vue'
+
+const langMap: Record<string, string> = {
+  'zh-cn': 'zh-hans',
+  'zh-sg': 'zh-hans',
+  'zh-hk': 'zh-hant',
+  'zh-mo': 'zh-hant',
+  'zh-tw': 'zh-hant',
+  'zh-hant': 'zh-hant',
+  'en': 'en',
+  'en-us': 'en',
+  'en-gb': 'en',
+}
+
+const fallbackLang = 'zh-hans'
+
+const rawLang =
+  typeof navigator !== 'undefined'
+    ? (navigator.language || navigator.userLanguage || '').toLowerCase()
+    : ''
+
+const lang = langMap[rawLang] || langMap[rawLang.split('-')[0]] || fallbackLang
+
+const router = useRouter()
+
+onMounted(() => {
+  setTimeout(() => {
+    router.go(`/${lang}/`)
+  }, 300)
+
+  if (typeof document !== 'undefined') {
+    document.getElementById('target-lang')!.innerText =
+      navigator.language || navigator.userLanguage || 'unknown'
+
+    const loadingVariants = ['Loading.', 'Loading..', 'Loading...']
+    let i = 0
+    const loadingEl = document.getElementById('loading-text')
+    setInterval(() => {
+      if (loadingEl) loadingEl.textContent = loadingVariants[i % loadingVariants.length]
+      i++
+    }, 500)
+  }
+})
 </script>
-<HomeContent>
 
-<div class="home custom-block">
-<p class="custom-block-title">INFO</p>
-<p style="">
-这是一个基于个人经验和网络资料整理的荷尔蒙知识共享平台，旨在为跨性别人群提供一些学习资料。这里涵盖 HRT 相关的基础知识、药物信息、经验分享、理论研究等内容，帮助大家更方便地获取和理解这些信息。当然，所有内容仅供参考，希望能为有需要的人提供一点帮助。
-</p>
-</div>
+# Redirecting
 
-<div class="home custom-block">
-<p class="custom-block-title">INFO</p>
-<p style="">
-网站当前正处于建设初期，内容尚未完善，欢迎补充。</p>
-</div>
+Your language is detected as **<span id="target-lang">loading</span>**.
 
-</HomeContent>
+We are redirecting you to the appropriate version. If nothing happens, you can choose manually:
+
+- [🇬🇧 English](/zh-hans/)
+- [🇨🇳 简体中文](/zh-hans/)
+- [🇨🇳 繁體中文](/zh-hant/)
+
+<p id="loading-text" style="font-weight: bold; font-size: 1.1em; margin-top: 1rem;"></p>

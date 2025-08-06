@@ -9,7 +9,7 @@
 
 
 .vp-nolebase-git-changelog-history {
-  border-left: 5px solid var(--custom-block-home-left);
+  border: 1px solid var(--custom-block-home-left);
   background-color: var(--custom-block-home-bg) !important;
 }
 

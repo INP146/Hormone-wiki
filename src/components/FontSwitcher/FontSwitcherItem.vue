@@ -1,19 +1,25 @@
 <script setup lang="ts">
+import { useData } from 'vitepress'
 import { useStorage } from '@vueuse/core'
 
-defineProps<{ fontName: string }>()
+const props = defineProps<{
+  fontName: string
+  fontI18nName: Record<string, string>
+}>()
+
 const activeFont = useStorage('activeFont', '')
+const { lang } = useData()
 </script>
 
 <template>
   <div class="VPMenuLink" @click="activeFont = fontName">
     <button class="link" :class="[activeFont === fontName && 'active']">
-      {{ fontName }}
+      {{ fontI18nName[lang] || fontName }}
     </button>
   </div>
 </template>
 
-<style lang="css" scoped>
+<style scoped>
 .link {
   width: 100%;
   text-align: left;

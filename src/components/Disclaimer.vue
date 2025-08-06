@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed, watch, nextTick } from 'vue'
 import { useData, useRoute } from 'vitepress'
-import type { PjtsThemeConfig } from '../config'
+import type { HormoneThemeConfig } from '../config'
 import { DisclaimerPathConfig } from '../utils/themeContext';
 
 const props = defineProps<{
@@ -9,7 +9,7 @@ const props = defineProps<{
 }>()
 const DEFAULT_EXPIRATION_MS = 7 * 24 * 60 * 60 * 1000 // 7 days
 const route = useRoute()
-const { theme } = useData<PjtsThemeConfig>()
+const { theme } = useData<HormoneThemeConfig>()
 
 const isExpanded = ref(false)
 const isHidden = ref(false)

@@ -1,8 +1,8 @@
 /* .vitepress/theme/style/custom-block.css */
 /* 深浅色卡 */
 :root {
-  --custom-block-home-left: #FD6E89;
-  --custom-block-home-bg: rgba(253, 110, 137, 16%);
+  --custom-block-home-left: var(--vp-c-brand-1);
+  --custom-block-home-bg: var(--vp-c-brand-soft);
   --custom-block-home-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-11v6h2v-6h-2zm0-4v2h2V7h-2z' fill='%23FD6E89'/%3E%3C/svg%3E");
   
   --custom-block-info-left: #cccccc;
@@ -63,7 +63,7 @@
 
 /* home容器:背景色、左侧 */
 .custom-block.home {
-  border-left: 5px solid var(--custom-block-home-left);
+  border: 1px solid var(--custom-block-home-left);
   background-color: var(--custom-block-home-bg);
 }
 
@@ -83,7 +83,7 @@
 
 /* info容器:背景色、左侧 */
 .custom-block.info {
-  border-left: 5px solid var(--custom-block-info-left);
+  border: 1px solid var(--custom-block-info-left);
   background-color: var(--custom-block-info-bg);
 }
 
@@ -104,7 +104,7 @@
 /* 提示容器:边框色、背景色、左侧 */
 .custom-block.tip {
   /* border-color: var(--custom-block-tip); */
-  border-left: 5px solid var(--custom-block-tip-left);
+  border: 1px solid var(--custom-block-tip-left);
   background-color: var(--custom-block-tip-bg);
 }
 
@@ -124,7 +124,7 @@
 
 /* 警告容器:背景色、左侧 */
 .custom-block.warning {
-  border-left: 5px solid var(--custom-block-warning-left);
+  border: 1px solid var(--custom-block-warning-left);
   background-color: var(--custom-block-warning-bg);
 }
 
@@ -143,7 +143,7 @@
 
 /* 危险容器:背景色、左侧 */
 .custom-block.danger {
-  border-left: 5px solid var(--custom-block-danger-left);
+  border: 1px solid var(--custom-block-danger-left);
   background-color: var(--custom-block-danger-bg);
 }
 
@@ -163,7 +163,7 @@
 
 /* NOTE容器:背景色、左侧 */
 .custom-block.note {
-  border-left: 5px solid var(--custom-block-note-left);
+  border: 1px solid var(--custom-block-note-left);
   background-color: var(--custom-block-note-bg);
 }
 
@@ -183,7 +183,7 @@
 
 /* IMPORTANT容器:背景色、左侧 */
 .custom-block.important {
-  border-left: 5px solid var(--custom-block-important-left);
+  border: 1px solid var(--custom-block-important-left);
   background-color: var(--custom-block-important-bg);
 }
 
@@ -203,7 +203,7 @@
 
 /* CAUTION容器:背景色、左侧 */
 .custom-block.caution {
-  border-left: 5px solid var(--custom-block-caution-left);
+  border: 1px solid var(--custom-block-caution-left);
   background-color: var(--custom-block-caution-bg);
 }
 

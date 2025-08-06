@@ -20,7 +20,7 @@ Hormone.wiki 提供的内容来源于编者经验及网络资料，仅供参考�
 
 如发现错误或不当内容，请联系 [admin@hormone.wiki](mailto:admin@hormone.wiki)。
 
-完整版的免责声明请见[关于我们/免责声明](/about/disclaimer)
+完整版的免责声明请见[关于我们/免责声明](./disclaimer)
 
 ## ©️ 版权声明
 
@@ -31,4 +31,4 @@ Hormone.wiki 提供的内容来源于编者经验及网络资料，仅供参考�
 
 作者为多人或其他情况会特殊说明。
 
-完整版的版权声明请见[关于我们/版权声明](/about/copyright)
+完整版的版权声明请见[关于我们/版权声明](./copyright)

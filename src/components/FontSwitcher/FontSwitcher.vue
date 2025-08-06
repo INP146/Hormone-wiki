@@ -1,27 +1,33 @@
 <script setup lang="tsx">
-import type { PjtsThemeConfig } from '../../config'
+import type { HormoneThemeConfig } from '../../config'
 import { useFetch, useStorage } from '@vueuse/core'
 import { useData } from 'vitepress'
 import VPFlyout from 'vitepress/dist/client/theme-default/components/VPFlyout.vue'
 import { computed, watchEffect } from 'vue'
 import FontSwitcherItem from './FontSwitcherItem.vue'
 
-const { theme } = useData<PjtsThemeConfig>()
+const { theme } = useData<HormoneThemeConfig>()
 
 const fontsBaseUrl = computed(() => theme.value.fontsBaseUrl)
 
-const { data: fonts } = useFetch<Record<string, { paths: string[], fontFamily: string }>>(
-  `${fontsBaseUrl.value}/path_map.json`,
-).json()
+const { data: fonts } = useFetch<Record<
+  string,
+  {
+    paths: string[]
+    fontFamily: string
+    i18nName: Record<string, string>
+  }
+>>(`${fontsBaseUrl.value}/path_map.json`).json()
 
 const activeFont = useStorage('activeFont', '')
 
 watchEffect(() => {
-  if (!fonts.value)
-    return
+  if (!fonts.value) return
+
   if (!fonts.value[activeFont.value]) {
-    activeFont.value = '寒蝉全圆'
+    activeFont.value = 'HanChanQuanYuan'
   }
+
   document.documentElement.style.setProperty(
     '--main-font',
     fonts.value[activeFont.value].fontFamily,
@@ -29,10 +35,14 @@ watchEffect(() => {
 })
 
 const items = computed(() => {
-  if (!fonts.value)
-    return []
-  return Object.entries(fonts.value).map(([displayName]) => ({
-    component: <FontSwitcherItem fontName={displayName} />,
+  if (!fonts.value) return []
+  return Object.entries(fonts.value).map(([displayName, config]) => ({
+    component: (
+      <FontSwitcherItem
+        fontName={displayName}
+        fontI18nName={config.i18nName || {}}
+      />
+    ),
   }))
 })
 </script>
@@ -46,7 +56,7 @@ const items = computed(() => {
       rel="stylesheet"
       as="style"
       :href="`${fontsBaseUrl}/${css}/result.css`"
-    >
+    />
   </template>
 </template>
 

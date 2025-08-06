@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { PjtsThemeConfig } from '../config'
+import type { HormoneThemeConfig } from '../config'
 import { NolebaseGitChangelog } from '@nolebase/vitepress-plugin-git-changelog/client'
 import { useData, useRoute } from 'vitepress'
 import { ref, watch } from 'vue'
 import { AppSBox, Disclaimer } from '../components'
 
 const route = useRoute()
-const { theme } = useData<PjtsThemeConfig>()
+const { theme } = useData<HormoneThemeConfig>()
 
 // 定义一个 ref 来存储动态 key
 const componentKey = ref(0)

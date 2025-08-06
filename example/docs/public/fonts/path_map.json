@@ -1,12 +1,21 @@
 {
-  "寒蝉全圆": {
+  "HanChanQuanYuan": {
+    "i18nName": {
+      "zh-Hans": "寒蝉全圆",
+      "zh-Hant": "寒蟬全圓",
+      "en": "HC Smooth"
+    },
     "paths": [
       "HanChanQuanYuan"
     ],
     "fontFamily": "HanChanQuanYuan"
   },
-  
-  "猫啃粉圆": {
+  "MaoKenFenYuan": {
+    "i18nName": {
+      "zh-Hans": "猫啃粉圆",
+      "zh-Hant": "貓啃粉圓",
+      "en": "MK Smooth"
+    },
     "paths": [
       "MaoKenFenYuan"
     ],

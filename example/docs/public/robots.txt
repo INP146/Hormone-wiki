@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://hormone.wiki/sitemap.xml

@@ -18,7 +18,7 @@ import { defineConfigWithTheme } from 'vitepress'
 import { generateSidebar } from './sidebar'
 import { useThemeContext } from './utils/themeContext'
 
-export interface PjtsThemeConfig extends DefaultTheme.Config {
+export interface HormoneThemeConfig extends DefaultTheme.Config {
   enableChangeLog?: boolean
   enableSuggestionBox?: boolean
   enableDisclaimer?: boolean
@@ -71,32 +71,55 @@ function countWords(content: string): number {
 function genConfig() {
   const themeConfig = useThemeContext()
   const {
-    siteTitle,
+    sidebarOptions,
+    disableChangelog,
+    disableContributors,
     githubRepoLink,
+    sitePattern,
+    mapAuthors,
+    
     nav,
+    siteTitle,
+    siteDescription,
+    include,
+    disclaimerPaths,
+    editLink,
+    outline,
+    lastUpdated,
+    darkModeSwitchLabel,
+    sidebarMenuLabel,
+    returnToTopLabel,
+    docFooter,
+    search,
+    getChangelogTitle,
+    getContributorsTitle,
+    lang,
+    
+    rootDir,
+    hostName,
+    
+    enableSuggestionBox = true,
+    enableDisclaimer,
+    disclaimerStatusKey,
+    disclaimerStatusExpiration,
+    
+    locales,
+    additionalHead = [],
+    
+    //new
     siteLogo,
     SiteTitle,
     baseUrl = '/',
     enableChangeLog = false,
-    enableSuggestionBox = true,
-    sitePattern,
     org,
     HideReadingTime,
     HideLastUpdated,
     HideAuthors,
-    rootDir,
-    hostName,
     fontsBaseUrl = '/fonts',
-    enableDisclaimer,
-    disclaimerPaths,
-    disclaimerStatusKey,
-    disclaimerStatusExpiration,
-    locales, // i18n
-    additionalHead = [],
   } = themeConfig
 
-  return defineConfigWithTheme<PjtsThemeConfig>({
-    lang: 'zh-CN',
+  return defineConfigWithTheme<HormoneThemeConfig>({
+    lang: lang,
     title: siteTitle,
     base: baseUrl,
     sitemap: {
@@ -159,64 +182,19 @@ function genConfig() {
       nav,
       sidebar: generateSidebar(),
       socialLinks: [{ icon: 'github', link: githubRepoLink }],
-      editLink: {
-        pattern: `${githubRepoLink}/edit/main/${sitePattern}/:path`,
-        text: '在 GitHub 上编辑此页面', // label localization
-      },
+      editLink,
+      outline,
+      lastUpdated,
+      darkModeSwitchLabel,
+      sidebarMenuLabel,
+      returnToTopLabel,
+      docFooter,
       enableDisclaimer,
       disclaimerPaths,
       disclaimerStatusKey,
       disclaimerStatusExpiration,
       // label localization
-      outline: { label: '本页大纲', level: 'deep' },
-      lastUpdated: { text: '最后更新' },
-      darkModeSwitchLabel: '深色模式',
-      sidebarMenuLabel: '目录',
-      returnToTopLabel: '返回顶部',
-      docFooter: {
-        prev: '上一页',
-        next: '下一页',
-      },
-      search: {
-        provider: 'local',
-        options: {
-          locales: {
-            root: {
-              translations: {
-                button: {
-                  buttonText: '搜索文档',
-                  buttonAriaLabel: '搜索文档',
-                },
-                modal: {
-                  noResultsText: '无法找到相关结果',
-                  resetButtonTitle: '清除查询条件',
-                  displayDetails: '显示详细列表',
-                  footer: {
-                    selectText: '选择',
-                    navigateText: '切换',
-                    closeText: '关闭',
-                    // 无障碍（ARIA）标签，用于描述键盘导航操作
-                    navigateUpKeyAriaLabel: '上箭头',
-                    navigateDownKeyAriaLabel: '下箭头',
-                    selectKeyAriaLabel: '回车',
-                    closeKeyAriaLabel: '退出',
-                  },
-                },
-              },
-            },
-          },
-          // Add title field in frontmatter to search
-          // You can exclude a page from search by adding search: false to the page's frontmatter.
-          _render(src, env, md) {
-            if (env.frontmatter?.search === false)
-              return ''
-            let html = md.render(src, env)
-            if (env.frontmatter?.title)
-              html = md.render(`# ${env.frontmatter.title}\n`) + html
-            return html
-          },
-        },
-      },
+      search,
       fontsBaseUrl,
     },
     locales, // i18n
@@ -233,25 +211,20 @@ function genConfig() {
       plugins: [
         GitChangelog({
           repoURL: githubRepoLink,
-          mapAuthors: [
-            {
-              name: 'INP146',
-              username: 'INP146',
-              mapByEmailAliases: ['inp1458@gmail.com'],
-              avatar: 'https://github.com/INP146.png',
-            }
-          ]
+          mapAuthors: mapAuthors
         }),
         GitChangelogMarkdownSection({
           sections: {
             disableChangelog: false,
             disableContributors: false,
           },
-          getChangelogTitle: () => '页面历史',
-          getContributorsTitle: () => '贡献者',
+          getChangelogTitle: () => getChangelogTitle,
+          getContributorsTitle: () => getContributorsTitle,
           excludes: [],
           exclude: (_, { helpers }) => {
-            return helpers.idEquals('index.md');
+            const localePrefixes = Object.keys(locales ?? {}) // e.g. ['en', 'zh-Hant']
+            const indexPages = ['index.md', ...localePrefixes.map((prefix) => `${prefix}/index.md`)]
+            return indexPages.some(p => helpers.idEquals(p))
           },
         }),
         Components({

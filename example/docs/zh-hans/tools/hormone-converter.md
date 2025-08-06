@@ -6,6 +6,10 @@ category:
   - Tools
 ---
 
+<script setup>
+import HormoneConverter from '../components/HormoneConverter.vue'
+</script>
+
 <HormoneConverter />
 ~~*可左右滚动。🌚*~~
 
