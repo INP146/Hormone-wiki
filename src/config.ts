@@ -164,6 +164,19 @@ function genConfig() {
       ['meta', { name: 'msapplication-TileColor', content: '#4c4c4c' }],
       ['meta', { name: 'theme-color', content: '#ffffff' }],
       ['meta', { property: 'og:site_name', content: siteTitle }],
+      ['script',{
+        async: '',
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-T9J2G2RNNS'
+        }
+      ],
+      ['script',{},
+        `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-T9J2G2RNNS');
+        `
+      ],
       ...additionalHead, // 其他自定义的 head 元素
     ],
     themeConfig: {
