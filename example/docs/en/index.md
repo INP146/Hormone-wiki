@@ -10,6 +10,9 @@ head:
   - - meta
     - name: keywords
       content: Hormones, HRT, Transgender, Health, Endocrinology, Estrogen, Wiki
+  - - meta
+    - name: description
+      content: This is a hormone knowledge-sharing platform compiled from personal experience and online resources. It aims to provide learning materials for the transgender community.
 
 hero:
   name: "<b><span class='hormone'>&nbsp Hormone.wiki &nbsp</span></b>"

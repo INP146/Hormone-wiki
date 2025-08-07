@@ -9,6 +9,9 @@ head:
   - - meta
     - name: keywords
       content: 荷爾蒙, HRT, 跨性別, 健康, 內分泌, 激素, 雌二醇, 維基
+  - - meta
+    - name: description
+      content: 這是一個基於個人經驗和網路資料整理的荷爾蒙知識共享平台，旨在為跨性別人群提供一些學習資料。
 
 hero:
   name: "<b><span class='hormone'>&nbsp Hormone.wiki &nbsp</span></b>"
