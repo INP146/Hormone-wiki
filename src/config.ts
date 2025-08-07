@@ -78,7 +78,6 @@ function genConfig() {
     sitePattern,
     mapAuthors,
     
-    GAID,
     nav,
     siteTitle,
     siteDescription,
@@ -119,51 +118,6 @@ function genConfig() {
     fontsBaseUrl = '/fonts',
   } = themeConfig
 
-  const head = [
-    [
-      'link',
-      {
-        rel: 'apple-touch-icon',
-        sizes: '180x180',
-        href: '/logo.png',
-      },
-    ],
-    [
-      'link',
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '32x32',
-        href: '/logo.png',
-      },
-    ],
-    [
-      'link',
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '16x16',
-        href: '/logo.png',
-      },
-    ],
-    ['link', { rel: 'manifest', href: '/site.webmanifest' }],
-    ['meta', { name: 'msapplication-TileColor', content: '#4c4c4c' }],
-    ['meta', { name: 'theme-color', content: '#ffffff' }],
-    ['meta', { property: 'og:site_name', content: siteTitle }],
-    ...additionalHead, // 其他自定义的 head 元素
-  ]
-  if (GAID) {
-    head.push(
-      ['script', { async: '', src: `https://www.googletagmanager.com/gtag/js?id=${GAID}` }],
-      ['script', {}, `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${GAID}');
-      `]
-    )
-  }
-
   return defineConfigWithTheme<HormoneThemeConfig>({
     lang: lang,
     title: siteTitle,
@@ -179,7 +133,39 @@ function genConfig() {
         md.use(katex)
       },
     },
-    head,
+    head: [
+      [
+        'link',
+        {
+          rel: 'apple-touch-icon',
+          sizes: '180x180',
+          href: '/logo.png',
+        },
+      ],
+      [
+        'link',
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '32x32',
+          href: '/logo.png',
+        },
+      ],
+      [
+        'link',
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '16x16',
+          href: '/logo.png',
+        },
+      ],
+      ['link', { rel: 'manifest', href: '/site.webmanifest' }],
+      ['meta', { name: 'msapplication-TileColor', content: '#4c4c4c' }],
+      ['meta', { name: 'theme-color', content: '#ffffff' }],
+      ['meta', { property: 'og:site_name', content: siteTitle }],
+      ...additionalHead, // 其他自定义的 head 元素
+    ],
     themeConfig: {
       org,
       HideReadingTime,
