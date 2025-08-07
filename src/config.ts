@@ -164,6 +164,16 @@ function genConfig() {
       ['meta', { name: 'msapplication-TileColor', content: '#4c4c4c' }],
       ['meta', { name: 'theme-color', content: '#ffffff' }],
       ['meta', { property: 'og:site_name', content: siteTitle }],
+      [
+        'script',
+        {},
+        `(function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/sr6gytvep4";
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "sr6gytvep4");`
+      ],
+
       ...additionalHead, // 其他自定义的 head 元素
     ],
     themeConfig: {
