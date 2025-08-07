@@ -6,7 +6,6 @@ author: Hormone.wiki
 head:
   - - meta
     - name: keywords
-      content: keywords
       content: Hormones, HRT, Transgender, Health, Endocrinology, Estrogen, Wiki
   - - meta
     - name: description
