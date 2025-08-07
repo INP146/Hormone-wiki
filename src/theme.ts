@@ -1,30 +1,40 @@
+// 📦 Core dependencies
 import type { Theme } from 'vitepress'
 import type { VitePressSidebarOptions } from 'vitepress-sidebar/types'
-// https://vitepress.dev/guide/custom-theme
-import {
-  NolebaseEnhancedReadabilitiesPlugin,
-} from '@nolebase/vitepress-plugin-enhanced-readabilities/client'
+import { onMounted, toRefs } from 'vue'
+import { useData, useRoute } from 'vitepress'
 
-import {
-  NolebaseGitChangelogPlugin,
-} from '@nolebase/vitepress-plugin-git-changelog/client'
-import DefaultTheme from 'vitepress/theme-without-fonts'
-import { onMounted } from 'vue'
-
-import Layout from './Layout.vue'
-import './style.css'
-
+// 🎨 Plugin styles
+import 'nprogress-v2/dist/index.css'
 import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
-
 import '@nolebase/vitepress-plugin-git-changelog/client/style.css'
 import '@nolebase/vitepress-plugin-highlight-targeted-heading/client/style.css'
+
+// 🧩 VitePress plugin components
+import { NolebaseEnhancedReadabilitiesPlugin } from '@nolebase/vitepress-plugin-enhanced-readabilities/client'
+import { NolebaseGitChangelogPlugin } from '@nolebase/vitepress-plugin-git-changelog/client'
+import googleAnalytics from 'vitepress-plugin-google-analytics'
+import giscusTalk from 'vitepress-plugin-comment-with-giscus'
+import { NProgress } from 'nprogress-v2/dist/index.js'
+
+// 🏗️ Default theme
+import DefaultTheme from 'vitepress/theme-without-fonts'
+
+// 🖼️ Custom layout & styles
+import Layout from './Layout.vue'
+import './style.css'
 
 export type SidebarOptions = VitePressSidebarOptions
 
 export default {
   extends: DefaultTheme,
   Layout,
-  enhanceApp({ app }) {
+  enhanceApp({ app, router, isClient }) {
+
+    googleAnalytics({
+      id: 'G-T9J2G2RNNS',
+    }),
+    
     app.use(NolebaseEnhancedReadabilitiesPlugin, {
       spotlight: {
         defaultToggle: true,
@@ -309,5 +319,44 @@ export default {
         },
       }
     })
+  },
+  
+  if (inBrowser) {
+    NProgress.configure({ showSpinner: false })
+    router.onBeforeRouteChange = () => {
+      NProgress.start() // 开始进度条
+    }
+    router.onAfterRouteChanged = () => {
+      NProgress.done() // 停止进度条
+    }
+  },
+  
+  setup() {
+    const { frontmatter } = toRefs(useData())
+    const route = useRoute()
+  
+    giscusTalk(
+      {
+        repo: 'INP146/Hormone-wiki',
+        repoId: 'R_kgDOPUppSQ',
+        category: 'General',
+        categoryId: 'DIC_kwDOPUppSc4Ct5ag',
+        mapping: 'pathname',
+        inputPosition: 'top',
+        lang: 'en',
+        locales: {
+          'zh-Hans': 'zh-CN',
+          'zh-Hant': 'zh-TW',
+          'en': 'en',
+        },
+        homePageShowComment: false,
+        lightTheme: 'light',
+        darkTheme: 'transparent_dark',
+      },
+      {
+        frontmatter,
+        route,
+      },true // 全局开启
+    )
   },
 } satisfies Theme
