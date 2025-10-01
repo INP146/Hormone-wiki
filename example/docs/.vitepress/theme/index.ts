@@ -1,5 +1,5 @@
 // docs/.vitepress/theme/index.ts
-import HormoneTheme from '@minesleet/vitepress-theme-hormone/theme'
+import HormoneTheme from '@INP146/vitepress-theme-hormone/theme'
 import { onMounted } from 'vue'
 
 import 'uno.css'

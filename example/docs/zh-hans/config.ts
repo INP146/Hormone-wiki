@@ -27,6 +27,10 @@ export const zhHansCfg = {
   themeConfig: {
     nav: [
       {
+        text: '网站首页',
+        link: `/${pathName}/`,
+      },
+      {
         text: '查看文档',
         link: `/${pathName}/docs/`,
       },

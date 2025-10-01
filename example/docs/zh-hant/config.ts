@@ -27,6 +27,10 @@ export const zhHantCfg = {
   themeConfig: {
     nav: [
       {
+        text: '網站首頁',
+        link: `/${pathName}/`,
+      },
+      {
         text: '查看文件',
         link: `/${pathName}/docs/`,
       },

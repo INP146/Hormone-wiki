@@ -1,13 +1,13 @@
 {
-  "name": "@minesleet/vitepress-theme-hormone",
+  "name": "@INP146/vitepress-theme-hormone",
   "type": "module",
   "version": "0.0.1",
   "packageManager": "pnpm@10.4.1+sha512.c753b6c3ad7afa13af388fa6d808035a008e30ea9993f58c6663e2bc5ff21679aa834db094987129aa4d488b86df57f7b634981b2f827cdcacc698cc0cfb88af",
-  "description": "A VitePress theme made by Project trans and MineSleet",
+  "description": "A VitePress theme made by Project trans and INP146",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/minesleet/vitepress-theme-minesleet"
+    "url": "https://github.com/INP146/vitepress-theme-INP146"
   },
   "exports": {
     "./config": {
@@ -58,10 +58,10 @@
     "@nolebase/vitepress-plugin-highlight-targeted-heading": "^2.14.0",
     "@nolebase/vitepress-plugin-meta": "^2.14.0",
     "@project-trans/suggestion-box": "^0.5.0",
-    "nprogress-v2": "^1.1.10",
     "markdown-it-footnote": "^4.0.0",
     "markdown-it-katex": "^2.0.3",
-    "markdown-it-pangu": "^1.0.2"
+    "markdown-it-pangu": "^1.0.2",
+    "nprogress-v2": "^1.1.10"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.3.0",
@@ -71,6 +71,7 @@
     "@unocss/eslint-plugin": "^66.0.0",
     "eslint": "^9.21.0",
     "eslint-plugin-format": "^1.0.1",
+    "markdown-it-mathjax3": "^4.3.2",
     "typescript": "^5.7.3",
     "unbuild": "3.3.1",
     "unplugin-vue-components": "^28.4.0",

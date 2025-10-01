@@ -27,6 +27,10 @@ export const enCfg = {
   themeConfig: {
     nav: [
       {
+        text: 'Home Page',
+        link: `/${pathName}/`,
+      },
+      {
         text: 'Documentation',
         link: `/${pathName}/docs/`,
       },

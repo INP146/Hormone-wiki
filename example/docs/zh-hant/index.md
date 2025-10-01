@@ -36,7 +36,7 @@ hero:
 ---
 
 <script setup>
-import { HomeContent } from '@minesleet/vitepress-theme-hormone/components'
+import { HomeContent } from '@INP146/vitepress-theme-hormone/components'
 </script>
 <HomeContent>
 

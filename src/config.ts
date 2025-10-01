@@ -39,6 +39,14 @@ export interface HormoneThemeConfig extends DefaultTheme.Config {
     hostname: string
   }
   fontsBaseUrl: string
+  googleAnalytics?: {
+    enabled?: boolean
+    id?: string
+  }
+  clarity?: {
+    enabled?: boolean
+    id?: string
+  }
 }
 
 // 从文件系统读取 Markdown 文件内容
@@ -116,7 +124,21 @@ function genConfig() {
     HideLastUpdated,
     HideAuthors,
     fontsBaseUrl = '/fonts',
+    googleAnalytics,
+    clarity,
   } = themeConfig
+
+  const clarityHead = clarity?.enabled !== false && clarity?.id
+    ? [[
+        'script',
+        {},
+        `(function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/${clarity.id}";
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "${clarity.id}");`
+      ]]
+    : []
 
   return defineConfigWithTheme<HormoneThemeConfig>({
     lang: lang,
@@ -127,6 +149,7 @@ function genConfig() {
     },
     cleanUrls: true,
     markdown: {
+      math: true,
       config(md) {
         md.use(mdPangu)
         md.use(footnote)
@@ -164,16 +187,7 @@ function genConfig() {
       ['meta', { name: 'msapplication-TileColor', content: '#4c4c4c' }],
       ['meta', { name: 'theme-color', content: '#ffffff' }],
       ['meta', { property: 'og:site_name', content: siteTitle }],
-      [
-        'script',
-        {},
-        `(function(c,l,a,r,i,t,y){
-          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/sr6gytvep4";
-          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "sr6gytvep4");`
-      ],
-
+      ...clarityHead,
       ...additionalHead, // 其他自定义的 head 元素
     ],
     themeConfig: {
@@ -206,6 +220,8 @@ function genConfig() {
       // label localization
       search,
       fontsBaseUrl,
+      googleAnalytics,
+      clarity,
     },
     locales, // i18n
     transformHead: async (context) => {

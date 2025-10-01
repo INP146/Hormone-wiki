@@ -29,12 +29,12 @@ export type SidebarOptions = VitePressSidebarOptions
 export default {
   extends: DefaultTheme,
   Layout,
-  enhanceApp({ app, router, isClient }) {
+  
+  enhanceApp({ app, router, siteData }) {
+    const ga = siteData.value.themeConfig.googleAnalytics;
+    if (ga?.enabled !== false && ga?.id)
+      googleAnalytics({ id: ga.id })
 
-    googleAnalytics({
-      id: 'G-T9J2G2RNNS',
-    }),
-    
     app.use(NolebaseEnhancedReadabilitiesPlugin, {
       spotlight: {
         defaultToggle: true,

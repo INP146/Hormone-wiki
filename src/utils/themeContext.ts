@@ -41,6 +41,14 @@ export interface ThemeContext {
   HideAuthors?: boolean
   hostName: string
   fontsBaseUrl?: string
+  googleAnalytics?: {
+    enabled?: boolean
+    id?: string
+  }
+  clarity?: {
+    enabled?: boolean
+    id?: string
+  }
   enableDisclaimer?: boolean
   disclaimerPaths?: DisclaimerPathConfig[]
   disclaimerStatusKey?: string

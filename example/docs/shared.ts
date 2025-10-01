@@ -3,6 +3,7 @@ export const baseConfig = {
   useFolderTitleFromIndexFile: true,
   useFolderLinkFromIndexFile: true,
   collapsed: true,
+  sortMenusByFrontmatterOrder: true,
   documentRootPath: '/docs',
 }
 
